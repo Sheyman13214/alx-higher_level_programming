@@ -1,0 +1,26 @@
+"""
+This module defines a text-indentation function.
+
+******
+Usage:
+******
+>>> import importlib
+>>> text_indentation_module = importlib.import_module("5-text_indentation")
+>>> text_indentation = text_indentation_module.text_indentation
+>>> text_indentation("This is a simple text.")
+This is a simple text.
+>>> text_indentation("This is a text. It has multiple sentences. Each ending with a dot.")
+This is a text.
+It has multiple sentences.
+Each ending with a dot.
+>>> text_indentation("What is this? An example text.")
+What is this?
+An example text.
+>>> text_indentation("A text with multiple colons: one, two: and three.")
+A text with multiple colons:
+one, two: and three.
+>>> text_indentation("Invalid input",)  # doctest: +IGNORE_EXCEPTION_DETAIL +NORMALIZE_WHITESPACE
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
+"""
