@@ -1,18 +1,14 @@
 #!/usr/bin/python3
+"""Displays the X-Request-Id header variable of a request to a given URL.
+Usage: ./1-hbtn_header.py <URL>
 """
-Takes your GitHub credentials (username and password) and uses the GitHub API
-to display your id
-"""
+import sys
+import urllib.request
 
-if __name__ == '__main__':
-        from requests import get
-            from sys import argv
 
-                username = argv[1]
-                    password = argv[2]
+if __name__ == "__main__":
+        url = sys.argv[1]
 
-                        URL = "https://api.github.com/user"
-                            response = get(URL, auth=(username, password))
-                                json = response.json()
-
-                                    print(json.get('id'))
+            request = urllib.request.Request(url)
+                with urllib.request.urlopen(request) as response:
+                            print(dict(response.headers).get("X-Request-Id"))
